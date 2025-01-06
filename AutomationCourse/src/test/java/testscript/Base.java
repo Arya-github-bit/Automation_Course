@@ -2,6 +2,8 @@ package testscript;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Base {
  public WebDriver driver;
@@ -9,8 +11,8 @@ public class Base {
 	public void initialiseBrowser()
 	{
 		driver = new ChromeDriver();//launching  Chrome browser
-		driver.get("https://selenium.qabible.in/simple-form-demo.php");//open amazon website
-		driver.manage().window().maximize();//to maximize window
+		driver.get("https://selenium.qabible.in/simple-form-demo.php");//open website with given URL website
+		driver.manage().window().maximize();//to maximize the window
 
 	}
 	public void browserQuit()
