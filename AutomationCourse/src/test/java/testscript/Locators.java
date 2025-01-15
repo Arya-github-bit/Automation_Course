@@ -7,12 +7,19 @@ public class Locators extends Base {
 		
 		
 		WebElement xpathfollowingSibling= driver.findElement(By.xpath("//button[@id='button-one']//following-sibling::div"));
-		WebElement xpathdescendant= driver.findElement(By.xpath("//section[@class='clearfix']//descendant::div[@class='container page']"));
-		WebElement xpathancestor= driver.findElement(By.xpath("//button[@id='button-one']//ancestor::div[@class='container page']"));//ancestor
-		WebElement xpathpreceeding= driver.findElement(By.xpath("//button[@id='button-one']//preceding::div[@class='header-top']"));//preceeding
-		WebElement xpathfollowing= driver.findElement(By.xpath("//button[@id='button-one']//following::div[id='message-one']"));//followng method
-		WebElement xpathChild= driver.findElement(By.xpath("//section[@class='clearfix']//child::div[@class='container'"));//child technique
-		WebElement xpathParent= driver.findElement(By.xpath("//button[@id='button-one']//parent::form"));//parent technique show message button
+		
+		
+	WebElement xpathdescendant= driver.findElement(By.xpath("//section[@class='clearfix']//descendant::div[@class='container page']"));
+	
+	WebElement xpathancestor= driver.findElement(By.xpath("//button[@id='button-one']//ancestor::div[@class='container page']"));//ancestor
+	
+	WebElement xpathpreceeding= driver.findElement(By.xpath("//button[@id='button-one']//preceding::div[@class='header-top']"));//preceeding
+	
+	WebElement xpathfollowing= driver.findElement(By.xpath("//button[@id='button-one']//following::div[id='message-one']"));//followng method
+	
+	WebElement xpathChild= driver.findElement(By.xpath("//section[@class='clearfix']//child::div[@class='container'"));//child technique
+	
+	WebElement xpathParent= driver.findElement(By.xpath("//button[@id='button-one']//parent::form"));//parent technique show message button
 		
 		WebElement xpathSample4= driver.findElement(By.xpath("//button[@id='button-one']"));//Xpath
 		WebElement xpathClass= driver.findElement(By.xpath("//div[@class='card-header']"));
