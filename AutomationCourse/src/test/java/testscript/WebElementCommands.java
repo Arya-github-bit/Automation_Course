@@ -30,7 +30,7 @@ public class WebElementCommands extends Base {
 	{
 		String expectedYourMessageText = "Hello";
 		WebElement singleInputField= driver.findElement(By.xpath("//input[@id='single-input-field']"));
-		singleInputField.sendKeys("Hello");
+		singleInputField.sendKeys(expectedYourMessageText);
 		WebElement showMessageButton = driver.findElement(By.xpath("//button[@id='button-one']"));
 		showMessageButton.click();
 		WebElement yourMessageTextBox =driver.findElement(By.xpath("//div[@id='message-one']"));
@@ -45,8 +45,9 @@ public class WebElementCommands extends Base {
 			System.out.println("Test Failed");	
 		}
 	}
-	public void verifyTwoInputField(int a,int b)
-	{
+	public void verifyTwoInputField()
+	{   int a= 200;
+	    int b = 300;
 		int expectedTotal = a+b;
 		WebElement inputATextbox= driver.findElement(By.xpath("//input[@id='value-a']"));
 		inputATextbox.sendKeys(""+a);
@@ -135,7 +136,7 @@ public class WebElementCommands extends Base {
 		WebElementCommands webelementcommands = new WebElementCommands();
 		webelementcommands.initialiseBrowser();
 		webelementcommands.VerifySingleInputField();
-		webelementcommands.verifyTwoInputField(200,250);
+		webelementcommands.verifyTwoInputField();
 		webelementcommands.display();
 		webelementcommands.verifyBackgroundColourofShowmessageButton();
 		webelementcommands.VerifyTextColourofShowmessageButton();

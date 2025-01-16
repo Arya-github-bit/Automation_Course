@@ -6,7 +6,7 @@ public class Locators extends Base {
 	{
 		
 		
-		WebElement xpathfollowingSibling= driver.findElement(By.xpath("//button[@id='button-one']//following-sibling::div"));
+	WebElement xpathfollowingSibling= driver.findElement(By.xpath("//button[@id='button-one']//following-sibling::div"));
 		
 		
 	WebElement xpathdescendant= driver.findElement(By.xpath("//section[@class='clearfix']//descendant::div[@class='container page']"));
