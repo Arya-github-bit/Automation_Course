@@ -13,7 +13,8 @@ public class CheckBoxandRadioButton extends Base{
 	}
 	
 	public void verifyWhethertheUserissAbleToSelectMaleOption()
-	{
+	{   
+		String expectedSuccessMessage = "Radio button 'Male' is checked";
 		driver.navigate().to("https://selenium.qabible.in/radio-button-demo.php");
 		WebElement maleRadioButton=driver.findElement(By.xpath("//input[@id='inlineRadio1']"));
 		WebElement femaleRadioButton = driver.findElement(By.xpath("//input[@id='inlineRadio2']"));
@@ -24,7 +25,15 @@ public class CheckBoxandRadioButton extends Base{
 		WebElement showSelectedValue=driver.findElement(By.xpath("//button[@id='button-one']"));
 		showSelectedValue.click();
 		WebElement successMessageBox = driver.findElement(By.xpath("//div[@id='message-one']"));
-		String successMessage = successMessageBox.getText();
+		String actualSuccessMessage = successMessageBox.getText();
+		if(expectedSuccessMessage.equals(actualSuccessMessage))
+		{
+			System.out.println("Test Passed");
+		}
+		else
+		{
+			System.out.println("Test Failed");
+		}
 		
 		
 	}
