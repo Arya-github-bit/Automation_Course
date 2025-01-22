@@ -1,12 +1,14 @@
 package testscript;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class Dropdown  extends Base{
-	
-	public void verifyDropdown()
+
+	public void verifyDropdownSelect()
 	{
 		driver.navigate().to("https://selenium.qabible.in/select-input.php");
 		WebElement dropdown = driver.findElement(By.xpath("//select[@id='single-input-field']"));
@@ -14,12 +16,40 @@ public class Dropdown  extends Base{
 		select.selectByValue("Red");
 		select.selectByVisibleText("Yellow");
 		select.selectByIndex(3);
+		List<WebElement> options=select.getOptions();
+		int numberofOptions = options.size();
+
+	}
+	public void verifyDropdown()
+	{
+		driver.navigate().to("https://www.selenium.dev");
+		WebElement element = driver.findElement(By.xpath("//a[@href='/pt-br/']//ancestor::div[@class='dropdown']"));
+		element.click();
+		WebElement ulDropdown = driver.findElement(By.xpath("//div[@class='dropdown']//child::a[@class='dropdown-item']"));
+		ulDropdown.click();
+		List<WebElement> dropDownOptions =  driver.findElements(By.xpath("//div[@class='dropdown']//child::a[@class='dropdown-item']"));
+
+		for(WebElement option:dropDownOptions)
+		{
+			String language = option.getText();
+			if (language.equals("Português (Brasileiro)"))
+			{
+
+				option.click();
+				break;
+			}
+		}
+	}
+	public void verifyMultiElementSelector()
+	{
+
 	}
 
 	public static void main(String[] args) {
 		Dropdown dropdown = new Dropdown();
 		dropdown.initialiseBrowser();
-		dropdown.verifyDropdown();
+		dropdown.verifyMultiElementSelector();
+		//dropdown.verifyDropdown();
 		dropdown.browserQuit();
 
 	}
