@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class Dropdown  extends Base{
@@ -42,14 +43,20 @@ public class Dropdown  extends Base{
 	}
 	public void verifyMultiElementSelector()
 	{
-
+		driver.navigate().to("https://selenium.qabible.in/select-input.php");
+		WebElement twoInputField = driver.findElement(By.xpath("//select[@id='multi-select-field']"));
+		Select select = new Select(twoInputField);
+		boolean isDropDownIsMultiSelect =select.isMultiple();//to check whether it is multi select
+		select.selectByIndex(1);
+		select.selectByIndex(2);
 	}
-
+	
+	
 	public static void main(String[] args) {
 		Dropdown dropdown = new Dropdown();
 		dropdown.initialiseBrowser();
 		dropdown.verifyMultiElementSelector();
-		//dropdown.verifyDropdown();
+		dropdown.verifyDropdown();
 		dropdown.browserQuit();
 
 	}
