@@ -17,16 +17,18 @@ public class ExplicitFluentWait  extends Base{
 
 	public void explicitwait()
 	{
-		/*WebElement showMessageButton = driver.findElement(By.xpath("//button[@id='button-one']"));
+		WebElement showMessageButton = driver.findElement(By.xpath("//button[@id='button-one']"));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));//explicit wait object creation wait
 		wait.until(ExpectedConditions.elementToBeClickable(showMessageButton));//explicit wait code
-		showMessageButton.click();*/
-		
+		showMessageButton.click();
+
 		driver.navigate().to("https://selenium.qabible.in/javascript-alert.php");
 		WebElement javaScriptConfirmBoxclick = driver.findElement(By.xpath("//button[@onclick='jsConfirm()']"));
+		WebDriverWait wait1 = new WebDriverWait(driver,Duration.ofSeconds(3));
 		Wait.until(ExpectedConditions.alertIsPresent());
+	
 		javaScriptConfirmBoxclick.click();
-		
+
 	}
 	public void fluentWait()
 	{
