@@ -1,5 +1,7 @@
 package testscript;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -11,7 +13,9 @@ public class Base {
 	public void initialiseBrowser()
 	{
 		driver = new ChromeDriver();//launching  Chrome browser
+		
 		driver.get("https://selenium.qabible.in/simple-form-demo.php");//open website with given URL website
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));//implicit wait command
 		driver.manage().window().maximize();//to maximize the window
 
 	}

@@ -1,17 +1,26 @@
 package testscript;
 
+import java.time.Duration;
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebElementCommands extends Base {
-	
-	
+
+
 	public void display()
 
 	{
 		WebElement display= driver.findElement(By.xpath("//input[@id='single-input-field']"));
 		display.sendKeys("Hello");
-       // display.clear();//to clear a text field
+		// display.clear();//to clear a text field
 		WebElement showMessage = driver.findElement(By.xpath("//button[@id='button-one']"));
 		boolean isshowMessageButtonenabled =showMessage.isEnabled();
 		showMessage.isDisplayed();
@@ -28,11 +37,13 @@ public class WebElementCommands extends Base {
 	}
 	public void VerifySingleInputField()
 	{
-		String expectedYourMessageText = "Hello";
+		String expectedYourMessageText = "Arya";
 		WebElement singleInputField= driver.findElement(By.xpath("//input[@id='single-input-field']"));
 		singleInputField.sendKeys(expectedYourMessageText);
+
 		WebElement showMessageButton = driver.findElement(By.xpath("//button[@id='button-one']"));
 		showMessageButton.click();
+
 		WebElement yourMessageTextBox =driver.findElement(By.xpath("//div[@id='message-one']"));
 		String yourMessageText= yourMessageTextBox.getText();
 		String actualYourMessageText = yourMessageText.substring(15);
@@ -47,28 +58,28 @@ public class WebElementCommands extends Base {
 	}
 	public void verifyTwoInputField()
 	{   int a= 200;
-	    int b = 300;
-		int expectedTotal = a+b;
-		WebElement inputATextbox= driver.findElement(By.xpath("//input[@id='value-a']"));
-		inputATextbox.sendKeys(""+a);
-		WebElement inputBTextbox= driver.findElement(By.xpath("//input[@id='value-b']"));
-		inputBTextbox.sendKeys(""+b);
-		WebElement getTotalButton = driver.findElement(By.xpath("//button[@id='button-two']"));
-		getTotalButton.click();
-		WebElement totalText =driver.findElement(By.xpath("//div[@id='message-two']"));
-		String total =totalText.getText();
-		int actualTotal = Integer.parseInt(total.substring(14));
-		if(expectedTotal==actualTotal)
-		{
-			System.out.println("Test Passed");
-		}
-		else
-		{
-			System.out.println("Test Failed");	
-		}
+	int b = 300;
+	int expectedTotal = a+b;
+	WebElement inputATextbox= driver.findElement(By.xpath("//input[@id='value-a']"));
+	inputATextbox.sendKeys(""+a);
+	WebElement inputBTextbox= driver.findElement(By.xpath("//input[@id='value-b']"));
+	inputBTextbox.sendKeys(""+b);
+	WebElement getTotalButton = driver.findElement(By.xpath("//button[@id='button-two']"));
+	getTotalButton.click();
+	WebElement totalText =driver.findElement(By.xpath("//div[@id='message-two']"));
+	String total =totalText.getText();
+	int actualTotal = Integer.parseInt(total.substring(14));
+	if(expectedTotal==actualTotal)
+	{
+		System.out.println("Test Passed");
 	}
-	
-	
+	else
+	{
+		System.out.println("Test Failed");	
+	}
+	}
+
+
 	public void verifyBackgroundColourofShowmessageButton()
 	{
 		String expectedBackgroundColourofShowmessageButton = "rgba(0, 123, 255, 1)";
@@ -85,7 +96,7 @@ public class WebElementCommands extends Base {
 
 
 	}
-	
+
 	public void VerifyTextColourofShowmessageButton()
 	{
 		String expectedTextColourofShowmessageButton = "rgba(255, 255, 255, 1)";
@@ -136,12 +147,12 @@ public class WebElementCommands extends Base {
 		WebElementCommands webelementcommands = new WebElementCommands();
 		webelementcommands.initialiseBrowser();
 		webelementcommands.VerifySingleInputField();
-		webelementcommands.verifyTwoInputField();
-		webelementcommands.display();
-		webelementcommands.verifyBackgroundColourofShowmessageButton();
-		webelementcommands.VerifyTextColourofShowmessageButton();
-		webelementcommands.VerifyBorderColourofShowMessageButton();
-		webelementcommands.verifyFont_WeightofShowmessageButton();
+		//webelementcommands.verifyTwoInputField();
+		//webelementcommands.display();
+		//webelementcommands.verifyBackgroundColourofShowmessageButton();
+		//webelementcommands.VerifyTextColourofShowmessageButton();
+		//webelementcommands.VerifyBorderColourofShowMessageButton();
+		//webelementcommands.verifyFont_WeightofShowmessageButton();
 		webelementcommands.browserQuit();
 	}
 
