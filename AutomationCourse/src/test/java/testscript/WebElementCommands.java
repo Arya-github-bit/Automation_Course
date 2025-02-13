@@ -42,6 +42,8 @@ public class WebElementCommands extends Base {
 		singleInputField.sendKeys(expectedYourMessageText);
 
 		WebElement showMessageButton = driver.findElement(By.xpath("//button[@id='button-one']"));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));//explicit wait object creation wait
+		wait.until(ExpectedConditions.elementToBeClickable(showMessageButton));//explicit wait code
 		showMessageButton.click();
 
 		WebElement yourMessageTextBox =driver.findElement(By.xpath("//div[@id='message-one']"));
@@ -65,6 +67,11 @@ public class WebElementCommands extends Base {
 	WebElement inputBTextbox= driver.findElement(By.xpath("//input[@id='value-b']"));
 	inputBTextbox.sendKeys(""+b);
 	WebElement getTotalButton = driver.findElement(By.xpath("//button[@id='button-two']"));
+	Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
+			.withTimeout(Duration.ofSeconds(10))
+			.pollingEvery(Duration.ofSeconds(3))
+			.ignoring(NoSuchElementException.class);
+	fluentWait.until(ExpectedConditions.elementToBeClickable(getTotalButton));//fluent 
 	getTotalButton.click();
 	WebElement totalText =driver.findElement(By.xpath("//div[@id='message-two']"));
 	String total =totalText.getText();

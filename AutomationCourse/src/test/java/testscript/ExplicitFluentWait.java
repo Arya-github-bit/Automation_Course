@@ -25,7 +25,8 @@ public class ExplicitFluentWait  extends Base{
 		driver.navigate().to("https://selenium.qabible.in/javascript-alert.php");
 		WebElement javaScriptConfirmBoxclick = driver.findElement(By.xpath("//button[@onclick='jsConfirm()']"));
 		WebDriverWait wait1 = new WebDriverWait(driver,Duration.ofSeconds(3));
-		Wait.until(ExpectedConditions.alertIsPresent());
+		 wait1.until(ExpectedConditions.alertIsPresent());
+		String alertboxverification = driver.switchTo().alert().getText();
 	
 		javaScriptConfirmBoxclick.click();
 
